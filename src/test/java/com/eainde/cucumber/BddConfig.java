@@ -11,21 +11,19 @@ import java.io.IOException;
 
 @Configuration
 public class BddConfig {
-    @Bean
-    public RestTemplate bddRestTemplate(){
-        return new RestTemplateBuilder()
-                .errorHandler(
-                        new ResponseErrorHandler() {
-                            @Override
-                            public boolean hasError(ClientHttpResponse clientHttpResponse) throws IOException {
-                                return false;
-                            }
+  @Bean
+  public RestTemplate bddRestTemplate() {
+    return new RestTemplateBuilder()
+        .errorHandler(
+            new ResponseErrorHandler() {
+              @Override
+              public boolean hasError(ClientHttpResponse clientHttpResponse) throws IOException {
+                return false;
+              }
 
-                            @Override
-                            public void handleError(ClientHttpResponse clientHttpResponse) throws IOException {
-
-                            }
-                        }
-                ).build();
-    }
+              @Override
+              public void handleError(ClientHttpResponse clientHttpResponse) throws IOException {}
+            })
+        .build();
+  }
 }
