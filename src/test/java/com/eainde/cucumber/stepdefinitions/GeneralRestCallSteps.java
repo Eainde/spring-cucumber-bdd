@@ -51,7 +51,7 @@ public class GeneralRestCallSteps {
     @When("request body is {string}")
     public void requestBody(final String bodyName) throws IOException{
         final var body=objectMapper.readValue(Resources.toString(
-                Resources.getResource(String.format("reuestBody/%s.json", bodyName)),
+                Resources.getResource(String.format("requestBody/%s.json", bodyName)),
                 StandardCharsets.UTF_8),
                 Map.class);
         behaviourState.putResult(StateConstants.REQUEST_BODY, () -> new HttpEntity(body));
@@ -61,13 +61,13 @@ public class GeneralRestCallSteps {
     public void sendRequest(final String method){
         final UriComponentsBuilder uriComponentsBuilder=
                 behaviourState.fetchValue(StateConstants.URI_BUILDER, UriComponentsBuilder.class);
-        behaviourState.putResult(StateConstants.URI_BUILDER, ()-> sendRestCall(method, uriComponentsBuilder));
+        behaviourState.putResult(StateConstants.RESPONSE_ENTITY, ()-> sendRestCall(method, uriComponentsBuilder));
     }
 
     @Then("the request should respond with the status code {int}")
     public void shouldResponseWithStatusCode(final int statusCode){
         final var response=behaviourState.fetchValue(StateConstants.RESPONSE_ENTITY, ResponseEntity.class);
-        assertThat(response.getStatusCode().value(), equalTo(HttpStatus.valueOf(statusCode)));
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.valueOf(statusCode)));
     }
 
     @Then("the response body should match {string}")
