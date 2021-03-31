@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        basePackages = "com.eainde.order.repository",
+        basePackages = "com.eainde.cucumber.repository",
         entityManagerFactoryRef = "entityManager",
         transactionManagerRef = "transactionManager"
 )
@@ -51,7 +51,7 @@ public class DatabaseConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder){
         return builder.dataSource(dataSource())
                 .properties(hibernateProperties())
-                .packages("com.eainde.order.entity")
+                .packages("com.eainde.cucumber.entity")
                 .persistenceUnit("pu")
                 .build();
     }
