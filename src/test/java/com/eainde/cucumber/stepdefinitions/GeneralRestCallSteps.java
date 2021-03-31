@@ -74,7 +74,7 @@ public class GeneralRestCallSteps {
     public void responseBodyShouldMatch(final String responseBody) throws IOException{
         final var response= behaviourState.fetchValue(StateConstants.RESPONSE_ENTITY,ResponseEntity.class);
         final var actualMap= objectMapper.readTree((String) response.getBody());
-        final var expectedMap= objectMapper.readTree(Resources.toString(Resources.getResource(String.format("expectedResults/%s.json", responseBody)),
+        final var expectedMap= objectMapper.readTree(Resources.toString(Resources.getResource(String.format("responseBody/%s.json", responseBody)),
                 StandardCharsets.UTF_8));
         assertThat(actualMap, equalTo(expectedMap));
     }
