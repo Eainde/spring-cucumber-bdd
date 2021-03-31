@@ -27,7 +27,7 @@ public class HealthCheckSteps {
         final UriComponentsBuilder uriComponentsBuilder=
                 behaviourState.fetchValue(StateConstants.URI_BUILDER, UriComponentsBuilder.class);
         behaviourState.putResult(StateConstants.RESPONSE_ENTITY, () ->
-                restTemplate.getForObject(uriComponentsBuilder.path(HEALTH_PATH).build().toUri(),
+                restTemplate.getForEntity(uriComponentsBuilder.path(HEALTH_PATH).build().toUri(),
                         String.class));
     }
 
