@@ -8,9 +8,10 @@ Feature: Order service Testing
     Given path "/order/"
     And a request is made using method "GET"
     Then the request should respond with the status code 200
+    Then the response body should match "orderResponseDto"
 
   @OrderService
-  Scenario: Get order record bi id
+  Scenario: Get order record by id
     Given path "/order/1"
     And a request is made using method "GET"
     Then the request should respond with the status code 200
