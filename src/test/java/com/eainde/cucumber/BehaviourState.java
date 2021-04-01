@@ -1,14 +1,15 @@
 package com.eainde.cucumber;
 
-import io.cucumber.spring.CucumberTestContext;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Supplier;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import io.cucumber.spring.CucumberTestContext;
 
 @Component
 @Scope(CucumberTestContext.SCOPE_CUCUMBER_GLUE)

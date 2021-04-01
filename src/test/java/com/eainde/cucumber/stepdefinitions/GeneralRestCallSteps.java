@@ -3,13 +3,10 @@ package com.eainde.cucumber.stepdefinitions;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-import com.eainde.cucumber.BehaviourState;
-import com.eainde.cucumber.constants.StateConstants;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import io.cucumber.messages.internal.com.google.common.io.Resources;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -17,9 +14,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.Map;
+import com.eainde.cucumber.BehaviourState;
+import com.eainde.cucumber.constants.StateConstants;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.eainde.cucumber.BehaviourState;
+import com.eainde.cucumber.constants.StateConstants;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.cucumber.messages.internal.com.google.common.io.Resources;
 
 public class GeneralRestCallSteps {
   private final RestTemplate restTemplate;
