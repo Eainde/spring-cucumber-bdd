@@ -5,6 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -16,6 +17,7 @@ import io.cucumber.spring.CucumberContextConfiguration;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @CucumberContextConfiguration
 @ContextConfiguration(initializers = SpringSteps.Initiliazer.class)
+@ActiveProfiles("test")
 public class SpringSteps {
   private static final String BASE_URI = "http://localhost";
   private final int port;
