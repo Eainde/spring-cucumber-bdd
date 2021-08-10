@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
+import com.eainde.cucumber.BehaviourState;
+import com.eainde.cucumber.constants.StateConstants;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -14,12 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.eainde.cucumber.BehaviourState;
-import com.eainde.cucumber.constants.StateConstants;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import com.eainde.cucumber.BehaviourState;
-import com.eainde.cucumber.constants.StateConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.cucumber.java.en.Given;

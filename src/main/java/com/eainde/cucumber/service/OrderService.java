@@ -7,9 +7,6 @@ import org.springframework.stereotype.Service;
 import com.eainde.cucumber.entity.Order;
 import com.eainde.cucumber.repository.OrderRepository;
 
-import com.eainde.cucumber.entity.Order;
-import com.eainde.cucumber.repository.OrderRepository;
-
 @Service
 public class OrderService {
   private final OrderRepository repository;

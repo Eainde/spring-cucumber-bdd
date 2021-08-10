@@ -3,15 +3,11 @@ package com.eainde.cucumber.stepdefinitions;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import com.eainde.cucumber.BehaviourState;
+import com.eainde.cucumber.constants.StateConstants;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import com.eainde.cucumber.BehaviourState;
-import com.eainde.cucumber.constants.StateConstants;
-
-import com.eainde.cucumber.BehaviourState;
-import com.eainde.cucumber.constants.StateConstants;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

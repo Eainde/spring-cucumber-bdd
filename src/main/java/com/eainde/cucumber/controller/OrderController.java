@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import com.eainde.cucumber.entity.Order;
 import com.eainde.cucumber.service.OrderService;
 
-import com.eainde.cucumber.entity.Order;
-import com.eainde.cucumber.service.OrderService;
-
 @RestController
 @RequestMapping("/order")
 public class OrderController {

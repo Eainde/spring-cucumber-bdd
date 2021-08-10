@@ -6,11 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import com.eainde.cucumber.entity.Order;
 import org.springframework.stereotype.Repository;
-
-import com.eainde.cucumber.entity.Order;
-
-import com.eainde.cucumber.entity.Order;
 
 @Repository
 public class OrderRepository {

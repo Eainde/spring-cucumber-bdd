@@ -1,14 +1,13 @@
 package com.eainde.cucumber.stepdefinitions;
 
+import com.eainde.cucumber.BehaviourState;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.eainde.cucumber.BehaviourState;
-import com.eainde.cucumber.constants.StateConstants;
-
-import com.eainde.cucumber.BehaviourState;
 import com.eainde.cucumber.constants.StateConstants;
 
 import io.cucumber.java.en.Given;
@@ -16,7 +15,7 @@ import io.cucumber.spring.CucumberContextConfiguration;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @CucumberContextConfiguration
-@ContextConfiguration
+@ContextConfiguration(initializers = SpringSteps.Initiliazer.class)
 public class SpringSteps {
   private static final String BASE_URI = "http://localhost";
   private final int port;
@@ -32,5 +31,14 @@ public class SpringSteps {
     behaviourState.clear();
     behaviourState.putResult(
         StateConstants.URI_BUILDER, () -> UriComponentsBuilder.fromHttpUrl(BASE_URI).port(port));
+  }
+
+  static class Initiliazer implements ApplicationContextInitializer<ConfigurableApplicationContext>{
+
+
+    @Override
+    public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
+      System.setProperty("spring.profiles.active","test");
+    }
   }
 }
