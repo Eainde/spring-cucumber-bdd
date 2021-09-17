@@ -1,6 +1,9 @@
 package com.eainde.cucumber.stepdefinitions;
 
 import com.eainde.cucumber.BehaviourState;
+import com.eainde.cucumber.containers.ExternalServiceContainer;
+import com.eainde.cucumber.containers.PostgresContainer;
+import org.junit.ClassRule;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.ApplicationContextInitializer;
@@ -35,12 +38,19 @@ public class SpringSteps {
         StateConstants.URI_BUILDER, () -> UriComponentsBuilder.fromHttpUrl(BASE_URI).port(port));
   }
 
-  static class Initiliazer implements ApplicationContextInitializer<ConfigurableApplicationContext>{
+  @ClassRule
+  private static final PostgresContainer POSTGRES_CONTAINER=PostgresContainer.getInstance();
 
+  @ClassRule
+  private static final ExternalServiceContainer SERVICE_CONTAINER=ExternalServiceContainer.getInstance();
+
+  static class Initiliazer implements ApplicationContextInitializer<ConfigurableApplicationContext>{
 
     @Override
     public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
       System.setProperty("spring.profiles.active","test");
+      POSTGRES_CONTAINER.start();
+      SERVICE_CONTAINER.start();
     }
   }
 }

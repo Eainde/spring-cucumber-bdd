@@ -18,6 +18,8 @@
         <spring-cloud.version>2020.0.3</spring-cloud.version>
         <spotless.version>2.9.0</spotless.version>
         <cucumber.version>6.10.4</cucumber.version>
+        <mockserver.version>1.16.0</mockserver.version>
+        <mockserver-client-java.version>5.11.2</mockserver-client-java.version>
     </properties>
 
     <dependencyManagement>
@@ -116,6 +118,16 @@
             <artifactId>cucumber-spring</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>mockserver</artifactId>
+            <version>${mockserver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mock-server</groupId>
+            <artifactId>mockserver-client-java</artifactId>
+            <version>${mockserver-client-java.version}</version>
         </dependency>
     </dependencies>
 
