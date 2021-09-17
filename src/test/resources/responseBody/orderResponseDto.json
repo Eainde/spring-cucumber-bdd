@@ -1,26 +1,6 @@
-[
-  {
-    "orderId": 1,
-    "description": "Akshay",
-    "country": "UK",
-    "quantity": 30
-  },
-  {
-    "orderId": 2,
-    "description": "Ashish",
-    "country": "UK",
-    "quantity": 33
-  },
-  {
-    "orderId": 3,
-    "description": "Praveen",
-    "country": "UK",
-    "quantity": 34
-  },
-  {
-    "orderId": 4,
-    "description": "Parshuram",
-    "country": "UK",
-    "quantity": 28
-  }
-]
+{
+  "orderId": 1,
+  "description": "Packet of 10 pencils",
+  "country": "India",
+  "quantity": 10
+}
